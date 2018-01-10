@@ -13,3 +13,15 @@ angular.module('module', ['ibw.ui.extensions']);
 <ib-item-content ib-item-content="item" on-answer-updated="onAnswerUpdated(result)"></ib-item-content>
 ```
 
+## Run
+
+```sh
+gulp server
+```
+
+## Build
+
+```sh
+gulp
+```
+
