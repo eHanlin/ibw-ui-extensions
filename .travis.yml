@@ -1,0 +1,11 @@
+language: node_js
+node_js: '8'
+deploy:
+  provider: npm
+  email: sparrow.jang@gmail.com
+  skip_cleanup: true
+  on:
+    tags: true
+  api_key:
+    secure: ci2UEjmQYIOWx1FQgesQddwXUk9JwmiZCBt1d4bJd2d3SqRnMXpkRZHhprSTV0s5IY8llQWsehADA64KA0vNfiXYfY3FfkBUzpiowIXBiJjAIeKIBjYJdh2u1/KUprnBST5lSaozK6JGOhIBqDHgArYssDbVoADXT0JbXr+bNVyqAZn4DHrmqCY7ts7MkKe7zagybPwFGcUy9YWrBjuiZDLCrUKVbfd+/3KHWZIF3OeqwyvRHc1qAeS3BIThS133UT/hyzp7r52k7gQHRWHUvMqHfYry1CcVszevuv0orh7Sjv0JXDSNb9z/EN6k9k4u7XCXBa1oiQpOJ5VDOLBJE7BVXC+7EnWwa+J0OmT7ZqNa61Dh8ggGWL3MI71pSLUH49wG+NwJcIiCS0rqiIjy/KvAEQXx94Iji/GkgazwWaY4CSdtFS6gMIL9h+KlSR690ee9zLXb2AuFXoqqElPM1X35WcD6I2Uu/AvFermdGYjx1oFjMGPApPBtYaxdxLKZYwupBDoZVwkLvbra38ihcHYrAA14J9fVkdst/DYP4hKMMyOaQe61lTQi73iyMFLrO4qZPMffxv24c61eAeUM6JGOy54NvRbJU8btQvZ5uMhH3/No2x92upupxF7/B4ULHTQPxWTmWjfoFIU8sglrewRmLqc0UyId3zbX36Ze77U=
+
