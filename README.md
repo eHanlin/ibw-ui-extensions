@@ -3,6 +3,17 @@ ibw-ui-extensions
 ======================================
 
 
+## Install
+
+```sh
+npm install --save ibw-ui-extensions
+```
+or
+
+```sh
+bower install ibw-ui-extensions
+```
+
 ## Usage
 
 ```js
