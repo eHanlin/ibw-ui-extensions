@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/eHanlin/ibw-ui-extensions.svg?branch=master)](https://travis-ci.org/eHanlin/ibw-ui-extensions)
 
 ibw-ui-extensions
 ======================================
