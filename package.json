@@ -1,6 +1,7 @@
 {
   "name":"ibw-ui-extensions",
   "version":"0.0.1",
+  "main":"dist/ibw-ui-extensions.js",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
