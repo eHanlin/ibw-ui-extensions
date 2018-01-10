@@ -2,6 +2,10 @@
   "name":"ibw-ui-extensions",
   "version":"0.0.2",
   "main":"dist/ibw-ui-extensions.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eHanlin/ibw-ui-extensions"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
