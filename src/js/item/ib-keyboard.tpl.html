@@ -1,0 +1,6 @@
+<div class="ib-keyboard">
+    <div ng-repeat="subjectId in subjectIds">
+      <span ng-click="onKeyClick({keyValue: code.value})" class="key" ng-repeat="code in KEYBOARD_CODE[subjectId.toUpperCase()]">{{code.value}}</span>
+    </div>
+</div>
+

@@ -1,0 +1,40 @@
+<div>
+    <div>
+        <div bind-html-compile="question.stem | decorateQuestionContent: {item:'item', question:'question', editable:true, questionIndex: questionIndex}">
+        </div>
+        <p>{{question.type}}</p>
+    </div>
+    <ol type="A" ng-if="question.options.length">
+        <li ng-repeat="opt in question.options track by $index" ng-bind-html="trustAsHtml(opt)">
+        </li>
+    </ol>
+    <p ng-if="!question.answers.length && item.fidelity !== 'low'">沒有答案</p>
+    <p ng-if="question.answers.length == 1 && item.fidelity !== 'low'">
+        答案：
+        <strong ng-repeat="answer in question.answers[0]">
+            <span>{{answer | answerKey:item.questions[questionIndex].answeringMethod }}</span>
+            <span ng-if="!$last">；</span>
+        </strong>
+    </p>
+    <div ng-if="question.answers.length > 1 && item.fidelity !== 'low'">
+        答案：
+        <strong ng-repeat="answerGroup in question.answers">
+            <span ng-repeat="answer in answerGroup">
+                <span>{{answer | answerKey:item.questions[questionIndex].answeringMethod }}</span>
+                <span ng-if="!$last">（或）</span>
+            </span>
+            <span ng-if="!$last">；</span>
+        </strong>
+    </div>
+    <div ng-if="question.proposeAnswers.length > 0">
+        建議答案：
+        <strong ng-repeat="answerGroup in question.proposeAnswers track by $index">
+            <span ng-repeat="answer in answerGroup">
+                <span>{{answer}}</span>
+                <span ng-if="!$last">（或）</span>
+            </span>
+            <span ng-if="!$last">；</span>
+        </strong>
+    </div>
+
+</div>

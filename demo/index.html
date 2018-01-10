@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>              
+<html lang="en" ng-app="ibw.ui.extensions">
+<head>                       
+  <meta charset="UTF-8">  
+  <title></title>            
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet/less" type="text/css" href="src/less/main.less" />
+
+</head>                      
+<body> 
+  <div ng-controller="demoCtrl">
+    <ib-item-content ib-item-content="item" on-answer-updated="onAnswerUpdated(result)"></ib-item-content> 
+  </div>
+  <script src="node_modules/less/dist/less.js"></script>
+  <script src="node_modules/jquery/dist/jquery.js"></script>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-bind-html-compile/angular-bind-html-compile.js"></script>
+  <script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <script src="node_modules/lodash/lodash.js"></script>
+  ${jsLinks}
+  <script>
+    angular
+      .module('ibw.ui.extensions')
+      .controller('demoCtrl', function($scope) {
+        $scope.item = {
+          "userType": "填充題",
+          "subjectIds": [
+            "J-PC"
+          ],
+          "preamble": null,
+          "content": {
+            "id": "123",
+            "preamble": null,
+            "questions": [
+              {
+                "stem": " <p>「雖然毫末生意，卻是頂上功夫」—<span class=\"answerarea\" data-answerarea-length=\"12\">（　　　　）</span>聯。</p>",
+                "options": [],
+                "answers": [
+                  [
+                    "理髮店"
+                  ]
+                ],
+                "proposeAnswers": [
+                  [
+                    "行業"
+                  ]
+                ],
+                "supplementals": {}
+              }
+            ]
+          },
+          "answerCount": 1,
+          "questionCount": 1,
+          "fidelity": "high",
+          "solution": "",
+          "questions": [
+            {
+              "questionIndex": 0,
+              "answeringMethod": "填充題",
+              "difficulty": "-3",
+              "isSequenceOption": false,
+              "subjectIds": [],
+            }
+          ],
+          "id": "123",
+        };
+
+        $scope.onAnswerUpdated = function(){
+          console.log(arguments);
+        };
+      });
+  </script>
+</body>                      
+</html>     
+

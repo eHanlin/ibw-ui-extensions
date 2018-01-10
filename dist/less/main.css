@@ -1,0 +1,20 @@
+.ib-keyboard {
+  background: ghostwhite;
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+}
+.ib-keyboard .key {
+  background: #333;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  margin: 4px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 4px;
+  user-select: none;
+}
+[ib-item-content] .answerarea[editable="true"] {
+  cursor: pointer;
+}
