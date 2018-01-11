@@ -621,13 +621,15 @@
         $uibModalInstance.close({ currentFieldProposeAnswers: $scope.currentFieldProposeAnswers, answerIndex: answerIndex });
       }
     });
-  }).factory('editAnswerDialog', function ($uibModal) {
+  }).factory('editAnswerDialog', function ($uibModal, $interpolate) {
 
     return function (_question, _answerIndex, _item) {
       var modalInstance;
+      var startSymbol = $interpolate.startSymbol();
+      var endSymbol = $interpolate.endSymbol();
 
       modalInstance = $uibModal.open({
-        template: '<div class="modal-header"><h3 class="modal-title">編輯答案</h3></div><div class="modal-body"><label>答案欄：</label><ul><li ng-repeat="answer in answers">{{answer}}</li></ul><label>建議答案：</label><div class="clearfix"></div><div class="col-sm-6"><ul class="row {{proposeAnswerClassName}}"><li ng-repeat="answer in currentFieldProposeAnswers track by $index"><input class="propose-answer-input" type="text" ng-model="currentFieldProposeAnswers[$index]" ng-focus="onFocus($event, $index)"> <button type="button" class="btn btn-default btn-xs" ng-click="onRemoveAnswer($event, $index)"><i class="glyphicon glyphicon-remove"></i></button></li></ul></div><div class="col-sm-6" ng-show="focusInputIndex != null && isDisplayKeyboard()"><div class="row"><ib-keyboard subject-ids="subjectIds" on-key-click="onKeyClick(keyValue)"></ib-keyboard></div></div><div class="clearfix"></div><button type="button" class="btn btn-default btn-xs" ng-click="onAddAnswer()">新增 <i class="glyphicon glyphicon-plus"></i></button></div><div class="modal-footer"><button class="btn btn-primary" type="button" ng-click="onSubmit()">確定</button> <button class="btn btn-warning" type="button" ng-click="onCancel()">取消</button></div>',
+        template: '\n                    <div class="modal-header">\n                        <h3 class="modal-title">\u7DE8\u8F2F\u7B54\u6848</h3>\n                    </div>\n                    <div class="modal-body">\n                        <label>\n                          \u7B54\u6848\u6B04\uFF1A\n                        </label>\n                        <ul>\n                            <li ng-repeat="answer in answers">\n                                ' + startSymbol + 'answer' + endSymbol + '\n                            </li>\n                        </ul>\n                        <label>\n                          \u5EFA\u8B70\u7B54\u6848\uFF1A\n                        </label>\n                        <div class="clearfix"></div>\n                        <div class="col-sm-6">\n                          <ul class="row ' + startSymbol + 'proposeAnswerClassName' + endSymbol + '">\n                            <li ng-repeat="answer in currentFieldProposeAnswers track by $index">\n                                <input class="propose-answer-input" type="text" ng-model="currentFieldProposeAnswers[$index]" ng-focus="onFocus($event, $index)" />\n                                <button type="button" class="btn btn-default btn-xs" ng-click="onRemoveAnswer($event, $index)">\n                                   <i class="glyphicon glyphicon-remove"></i>\n                                </button>\n                            </li>\n                          </ul>\n                        </div>\n                        <div class="col-sm-6" ng-show="focusInputIndex != null && isDisplayKeyboard()">\n                          <div class="row">\n                            <ib-keyboard subject-ids="subjectIds" on-key-click="onKeyClick(keyValue)"></ib-keyboard>\n                          </div>\n                        </div>\n                        <div class="clearfix"></div>\n                        <button type="button" class="btn btn-default btn-xs" ng-click="onAddAnswer()">\n                           \u65B0\u589E\n                           <i class="glyphicon glyphicon-plus"></i>\n                        </button>\n                    \n                    </div>\n                    <div class="modal-footer">\n                        <button class="btn btn-primary" type="button" ng-click="onSubmit()">\u78BA\u5B9A</button>\n                        <button class="btn btn-warning" type="button" ng-click="onCancel()">\u53D6\u6D88</button>\n                    </div>\n\n                    ',
         controller: 'EditAnswerModalCtrl',
         resolve: {
           question: function question() {
@@ -713,4 +715,7 @@
       });
     };
   });
-})(); })();
+})(); 
+       if (typeof module !== 'undefined') module.exports = 'ibw.ui.extensions';
+     })();
+    

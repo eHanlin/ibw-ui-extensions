@@ -1,6 +1,6 @@
 {
   "name": "ibw-ui-extensions",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
     "angular": "^1.6.8",
     "angular-bind-html-compile": "^1.4.1",
