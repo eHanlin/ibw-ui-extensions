@@ -54,7 +54,10 @@ gulp.task('js', function() {
     .pipe(concat('ibw-ui-extensions.js'))
     .pipe(babel())
     .pipe(replace(/^/g, '(function(){ '))
-    .pipe(replace(/$/g, ' })();'))
+    .pipe(replace(/$/g,` 
+       if (typeof module !== 'undefined') module.exports = 'ibw.ui.extensions';
+     })();
+    `))
     .pipe(gulp.dest('./dist'));
 });
 
