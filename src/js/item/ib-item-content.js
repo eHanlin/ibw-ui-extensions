@@ -659,13 +659,59 @@
             });
         })
 
-        .factory('editAnswerDialog', function ($uibModal) {
+        .factory('editAnswerDialog', function ($uibModal, $interpolate) {
 
             return function (question, answerIndex, item) {
                 var modalInstance;
+                var startSymbol = $interpolate.startSymbol();
+                var endSymbol = $interpolate.endSymbol();
 
                 modalInstance = $uibModal.open({
-                    templateUrl: 'src/js/item/ib-item-content-propose-answers.tpl.html',
+                    template:`
+                    <div class="modal-header">
+                        <h3 class="modal-title">編輯答案</h3>
+                    </div>
+                    <div class="modal-body">
+                        <label>
+                          答案欄：
+                        </label>
+                        <ul>
+                            <li ng-repeat="answer in answers">
+                                ${startSymbol}answer${endSymbol}
+                            </li>
+                        </ul>
+                        <label>
+                          建議答案：
+                        </label>
+                        <div class="clearfix"></div>
+                        <div class="col-sm-6">
+                          <ul class="row ${startSymbol}proposeAnswerClassName${endSymbol}">
+                            <li ng-repeat="answer in currentFieldProposeAnswers track by $index">
+                                <input class="propose-answer-input" type="text" ng-model="currentFieldProposeAnswers[$index]" ng-focus="onFocus($event, $index)" />
+                                <button type="button" class="btn btn-default btn-xs" ng-click="onRemoveAnswer($event, $index)">
+                                   <i class="glyphicon glyphicon-remove"></i>
+                                </button>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-sm-6" ng-show="focusInputIndex != null && isDisplayKeyboard()">
+                          <div class="row">
+                            <ib-keyboard subject-ids="subjectIds" on-key-click="onKeyClick(keyValue)"></ib-keyboard>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="onAddAnswer()">
+                           新增
+                           <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                    
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button" ng-click="onSubmit()">確定</button>
+                        <button class="btn btn-warning" type="button" ng-click="onCancel()">取消</button>
+                    </div>
+
+                    `,
                     controller: 'EditAnswerModalCtrl',
                     resolve: {
                         question: function () {
