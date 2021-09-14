@@ -16,7 +16,7 @@ function getJsFiles(cb) {
 
 function rednerHomePage(res) {
   getJsFiles(function(files){
-    var jsLinks = files.map((file)=> `<script src="${file}"></script>`).join('');
+    var jsLinks = files.map((file)=> `<script src="${file}"></script>`).sort().join('');
     var index = fs.readFileSync('demo/index.html','utf-8').replace(/\${jsLinks}/g, jsLinks);
     res.end(index);
   });
