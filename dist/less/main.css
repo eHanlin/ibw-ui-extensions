@@ -9,12 +9,27 @@
   cursor: pointer;
   display: inline-block;
   margin: 4px;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   text-align: center;
   border-radius: 4px;
   user-select: none;
 }
+.ib-keyboard .category-link {
+  padding: 2px;
+  cursor: pointer;
+  color: gray;
+}
+.ib-keyboard .category-link.selected {
+  color: black;
+}
 [ib-item-content] .answerarea[editable="true"] {
   cursor: pointer;
+}
+ib-mathquill-input[readonly] span.ib-mathquill-input {
+  pointer-events: none;
+  border: none;
+}
+ib-mathquill-input:not([readonly]) span.ib-mathquill-input {
+  min-width: 150px;
 }

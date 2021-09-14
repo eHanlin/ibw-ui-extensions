@@ -50,6 +50,7 @@ gulp.task('less', function () {
 gulp.task('js', function() {
     return gulp.src('src/js/**/*.js')
     .pipe(replace(/src\/js\/item/g, ''))
+    .pipe(replace(/src\/js\/ib-mathquill/g, ''))
     .pipe(embedTemplates())
     .pipe(concat('ibw-ui-extensions.js'))
     .pipe(babel())
