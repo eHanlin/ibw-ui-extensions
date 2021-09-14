@@ -5,6 +5,8 @@
   <meta charset="UTF-8">  
   <title></title>            
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="node_modules/mathquill/build/mathquill.css" />
+  <link rel="stylesheet" href="node_modules/katex/dist/katex.css" />
   <link rel="stylesheet/less" type="text/css" href="src/less/main.less" />
 
 </head>                      
@@ -20,6 +22,8 @@
   <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
   <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
   <script src="node_modules/lodash/lodash.js"></script>
+  <script src="node_modules/mathquill/build/mathquill.js"></script>
+  <script src="node_modules/katex/dist/katex.js"></script>
   ${jsLinks}
   <script>
     angular
@@ -28,7 +32,7 @@
         $scope.item = {
           "userType": "填充題",
           "subjectIds": [
-            "J-PC"
+            "J-MA"
           ],
           "preamble": null,
           "content": {

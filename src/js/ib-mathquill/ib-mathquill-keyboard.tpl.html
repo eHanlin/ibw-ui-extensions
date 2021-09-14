@@ -1,0 +1,21 @@
+
+<div class="ib-keyboard">
+
+    <div ng-repeat="subjectId in $ctrl.subjectIds">
+
+        <div class="text-center">
+            <span class="category-link" ng-repeat="name in $ctrl.getCategories($ctrl.KEY_CODE_MAP[subjectId.toUpperCase()])" data-name="{{name}}" ng-click="$ctrl.switchCategory(name)" ng-class="{selected:name == $ctrl.currentCategory}">
+                {{name}}
+            </span>
+        </div>
+        <hr>
+        
+        <span class="key" data-is-latex="{{code.isLatex}}" ng-repeat="code in $ctrl.KEY_CODE_MAP[subjectId.toUpperCase()]" ng-click="$ctrl.onKey({value:code.value})" data-symbol="{{code.symbol}}" ng-if="code.isLatex == $ctrl.isLatex() && code.category == $ctrl.currentCategory">
+            {{code.symbol}}
+        </span>
+
+    </div>
+
+</div>
+
+
