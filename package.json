@@ -1,7 +1,11 @@
 {
-  "name":"ibw-ui-extensions",
-  "version":"0.0.4",
-  "main":"dist/ibw-ui-extensions.js",
+  "name": "ibw-ui-extensions",
+  "version": "0.0.4",
+  "main": "dist/ibw-ui-extensions.js",
+  "scripts":{
+    "server": "gulp server",
+    "build": "gulp"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/eHanlin/ibw-ui-extensions"
